@@ -1,0 +1,12 @@
+.black{
+    background: black; 
+    color: white;
+}
+.body.pushable{
+    background: #545454!important;
+}
+#imgpos {
+	position: absolute; 
+	left: 90px; /* posiciona a 90px para a esquerda */ 
+	top: 70px; /* posiciona a 70px para baixo */
+    }

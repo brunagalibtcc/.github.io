@@ -1,0 +1,133 @@
+<html>
+  <head>    
+    <link rel="stylesheet" href="/semantic.min.css">
+    <link rel="stylesheet" href="/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@300&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/three@0.120.1/build/three.js"></script>
+    <script src="https://cdn.rawgit.com/mrdoob/three.js/master/examples/js/loaders/GLTFLoader.js"></script>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+      }
+      .ui.container{
+        font-family: 'Rokkitt', serif;
+        font-size: 17px;
+      }
+    </style>
+  </head>
+  <body class="pushable">
+    <div class="ui large inverted top fixed menu">
+      <div class="ui container">
+        <a class="item" href="index.html">Home</a>
+        <a class="item">Sobre a Artista</a>
+        <a class="item">Branca de Neve</a>
+        <a class="item">Mulan</a>
+        <a class="item">Hora de Aventura</a>
+        <a class="item">Avatar: a Lenda de Aang</a>
+        <a class="item">Harry Potter</a>
+        <a class="item">Vingadores</a>
+        <a class="item">Contato</a>
+      </div>
+    </div>
+  </body>
+  <script scr:"scene.glb"></script>
+  <script>
+    const scene = new THREE.Scene();
+    fogColor = new THREE.Color(0x302860);
+    scene.background = fogColor;
+    scene.fog = new THREE.FogExp2(fogColor, 0.1);
+
+    const camera = new THREE.PerspectiveCamera( 40, window.innerWidth / window.innerHeight, 0.1, 1000 );
+    camera.updateMatrixWorld();
+
+    var renderer = new THREE.WebGLRenderer();
+    renderer.setSize( window.innerWidth, window.innerHeight );
+    document.body.appendChild( renderer.domElement );
+
+    var geometry = new THREE.BoxGeometry();
+    var material = new THREE.MeshBasicMaterial( { color: 0xff0000 } );
+    var red = new THREE.Mesh( geometry, material );
+    scene.add( red );
+
+	  var geometry = new THREE.BoxGeometry();	
+    var material =  new THREE.MeshBasicMaterial( { color: 0x0000ff } );
+    var blue = new THREE.Mesh( geometry, material );
+    scene.add( blue );
+
+    var geometry = new THREE.BoxGeometry();
+    var material = new THREE.MeshBasicMaterial( { color: 0xffff00 } );
+    var yellow = new THREE.Mesh( geometry, material );
+    scene.add( yellow );
+
+    var geometry = new THREE.BoxGeometry();
+    var material = new THREE.MeshBasicMaterial( { color: 0xffffff } );
+    var white = new THREE.Mesh( geometry, material );
+    scene.add( white );
+
+    var loader = new THREE.GLTFLoader();
+    loader.load( 'UntitledScene.glb', function ( gltf ) {
+	  scene.add( gltf.scene );
+    }, undefined, function ( error ) {
+      console.error( error );
+  	} );
+
+    camera.position.x = 0;
+    camera.position.y = 2;
+    camera.position.z = 0;
+    
+    
+
+    let positions = [white.position, blue.position, red.position, yellow.position];
+    let current_position = 0;
+    addEventListener('click', (event)=>{
+      camera.lookAt(positions[current_position]);
+      current_position ++;
+      if (current_position == positions.length){
+        current_position = 0
+      }
+      console.log(positions)
+    }) 
+    
+    // MOVIMENTO POR CLICK AND DRAG (INICIO)
+    // let initial_X, initial_y, new_position_X, new_position_Y;
+    // addEventListener('mousedown', (event)=>{
+    //   initial_X = event.clientX;
+    //   initial_y = event.clientY;
+    //   console.log(initial_X);
+    // })
+    // addEventListener('mousemove', (event)=>{
+    //   new_position_X = event.clientX - initialX;
+    //   new_position_Y = event.clientY - initialY;
+    //   console.log(new_position_X);
+    //   camera.rotateZ(new_position_X);
+    // })
+
+    
+    let t = 0;
+    const r = 2;
+    let h = 0;
+    function animate() {
+      requestAnimationFrame( animate );
+      renderer.render( scene, camera );
+
+      t = 0.01;
+
+      red.position.x = 0;
+      red.position.y = 2;
+      red.position.z = -5;
+
+      blue.position.x = 0;
+      blue.position.y = 1;
+      blue.position.z = 5;
+
+      yellow.position.x = 5;
+      yellow.position.y = 0;
+
+      white.position.x = -5;
+      white.position.y = 2;
+
+    }
+    animate();
+  </script>
+</html>
