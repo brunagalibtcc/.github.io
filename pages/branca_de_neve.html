@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" href="/semantic/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;        
+      }
+      body.pushable{
+        background: #302860!important;
+      }
+      .ui.container{
+        font-family: 'Rokkitt', serif;
+        font-size: 17px;
+      }
+      #obra1{
+        display: flex;
+        background: #222322;
+        margin: 100px auto;
+        width: 90%;
+      }
+      #obra1>img{
+        position: relative;
+        width: 400px;
+        margin: 35px 70px;
+      }
+      #obra1>div{
+        position: relative;
+        width: 400px;
+        margin: 35px 100px;
+      }
+      #obra2{
+        display: flex;
+        background: #222322;
+        margin: 100px auto;
+        width: 90%;
+      }
+      #obra2>div{
+        position: relative;
+        width: 400px;
+        margin: 35px 150px;
+      }
+      #obra2>img{
+        margin: auto 150px;
+      }
+      hr{
+        border-color:red;
+      }
+      p{
+        color: white;
+        font-family: 'Zilla Slab', serif;
+        font-size: medium;
+      }
+    </style>
+  </head>
+  <body>
+    <body class="pushable">
+      <div class="ui large inverted top fixed menu">
+        <div class="ui container">
+          <a class="item" href="/index.html">Home</a>
+          <a class="item" href="/pages/sobre_a_artista.html">Sobre a Artista</a>
+          <a class="item" href="/pages/branca_de_neve.html">Branca de Neve</a>
+          <a class="item" href="/pages/mulan.html">Mulan</a>
+          <a class="item" href="/pages/hora_de_aventura.html">Hora de Aventura</a>
+          <a class="item" href="/pages/avatar.html">Avatar: a Lenda de Aang</a>
+          <a class="item" href="/pages/harry_potter.html">Harry Potter</a>
+          <a class="item" href="/pages/vingadores.html">Vingadores</a>
+          <a class="item" href="/pages/contato.html">Contato</a>
+        </div>
+      </div>
+      <div id="obra1">
+        <img src="/images/flores3.jpg">
+        <div>
+          <p>Não aceite doces de estranhos</p>
+          <hr></hr>
+          <p>A Revolução Francesa, que ocorreu no ano de 1789, é o evento que, segundo alguns autores, inaugura a chamada Idade Contemporânea. Os historiadores do século XIX, que fizeram a linha divisória da História, imputaram a este acontecimento o caráter de marco divisor entre a Idade Moderna e a Contemporânea, por conta da radicalização política que o caracterizou. Para se entender a Revolução Francesa é necessário conhecer um pouco da situação econômica e social da França do século XVIII.</p>
+          <p>Até o século XVIII, a França era um estado em que vigia o modelo do absolutismo monárquico. O então rei francês, Luís XVI, personificava o Estado, reunindo em sua pessoa os poderes legislativo, executivo e judiciário. Os franceses então não eram cidadãos de um Estado Democrático Constitucional, como hoje é comum em todo o mundo ocidental, mas eram súditos do rei. O rei personificava o Estado.</p>          
+        </div>
+      </div>
+      <div id="obra2">
+        <div>
+          <p>A madrasta não é louca</p>
+          <hr></hr>
+          <p>A Revolução Francesa, que ocorreu no ano de 1789, é o evento que, segundo alguns autores, inaugura a chamada Idade Contemporânea. Os historiadores do século XIX, que fizeram a linha divisória da História, imputaram a este acontecimento o caráter de marco divisor entre a Idade Moderna e a Contemporânea, por conta da radicalização política que o caracterizou. Para se entender a Revolução Francesa é necessário conhecer um pouco da situação econômica e social da França do século XVIII.</p>
+        </div>
+        <img src="/images/flores2.jpg">
+      </div>
+      <div id="obra1">
+        <img id="img" src="/images/flores1.jpg">
+        <div>
+          <p>Os 7 anões</p>
+          <hr></hr>          
+          <p>A Revolução Francesa, que ocorreu no ano de 1789, é o evento que, segundo alguns autores, inaugura a chamada Idade Contemporânea. Os historiadores do século XIX, que fizeram a linha divisória da História, imputaram a este acontecimento o caráter de marco divisor entre a Idade Moderna e a Contemporânea, por conta da radicalização política que o caracterizou. Para se entender a Revolução Francesa é necessário conhecer um pouco da situação econômica e social da França do século XVIII.</p>
+        </div>
+      </div>
+      <script>
+        let images = ["/images/flores1.jpg", "/images/tigre1.jpg", "/images/eu_e_leticia.jpg"];
+        console.log(images);
+        let image = 0;
+
+        function changeIMG(){
+          document.getElementById('img').src= images[image];
+            image++;
+            if (image == images.length){
+              image = 0;
+            }       
+          console.log(images[image])
+        };
+
+        function time(){
+          setInterval(changeIMG, 3000);
+        };        
+        
+        time();
+      </script>
+    </body>
+</html>
