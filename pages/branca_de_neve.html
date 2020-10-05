@@ -90,12 +90,32 @@
         <img src="/images/flores2.jpg">
       </div>
       <div id="obra1">
-        <img src="/images/flores1.jpg">
+        <img id="img" src="/images/flores1.jpg">
         <div>
           <p>Os 7 anões</p>
           <hr></hr>          
           <p>A Revolução Francesa, que ocorreu no ano de 1789, é o evento que, segundo alguns autores, inaugura a chamada Idade Contemporânea. Os historiadores do século XIX, que fizeram a linha divisória da História, imputaram a este acontecimento o caráter de marco divisor entre a Idade Moderna e a Contemporânea, por conta da radicalização política que o caracterizou. Para se entender a Revolução Francesa é necessário conhecer um pouco da situação econômica e social da França do século XVIII.</p>
         </div>
       </div>
+      <script>
+        let images = ["/images/flores1.jpg", "/images/tigre1.jpg", "/images/eu_e_leticia.jpg"];
+        console.log(images);
+        let image = 0;
+
+        function changeIMG(){
+          document.getElementById('img').src= images[image];
+            image++;
+            if (image == images.length){
+              image = 0;
+            }       
+          console.log(images[image])
+        };
+
+        function time(){
+          setInterval(changeIMG, 3000);
+        };        
+        
+        time();
+      </script>
     </body>
 </html>
