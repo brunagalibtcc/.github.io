@@ -29,17 +29,17 @@ function createWall(radius, texture, alphaTexture){
 }
 
 const wallsPromise = Promise.all([
-  loadTexture('images/arvores_pequenas.png'),loadTexture('images/arvores_pequenas_invertidas.png')
+  loadTexture('images/fundos_index/arvores_pequenas.png'),loadTexture('images/fundos_index/arvores_pequenas_invertidas.png')
 ]).then(textures=>createWall(70, textures[0], textures[1]));
 
 Promise.all([
-  loadTexture('images/arvores_medias.png'),loadTexture('images/arvores_medias_invertidas.png')
+  loadTexture('images/fundos_index/arvores_medias.png'),loadTexture('images/fundos_index/arvores_medias_invertidas.png')
 ]).then(textures=>createWall(80, textures[0], textures[1]));
 
 Promise.all([
-  loadTexture('images/arvores_grandes.png'),loadTexture('images/arvores_grandes_invertidas.png')
+  loadTexture('images/fundos_index/arvores_grandes.png'),loadTexture('images/fundos_index/arvores_grandes_invertidas.png')
 ]).then(textures=>createWall(85, textures[0], textures[1]));
 
 Promise.all([
-  loadTexture('images/arvores_transparentes.png'),loadTexture('images/alpha_test.png')
+  loadTexture('images/fundos_index/arvores_transparentes.png'),loadTexture('images/fundos_index/alpha_test.png')
 ]).then(textures=>createWall(100, textures[0], textures[1]));
