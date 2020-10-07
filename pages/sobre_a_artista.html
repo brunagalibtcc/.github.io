@@ -22,7 +22,7 @@
                 flex-direction:column;
                 border: #c7c6e1;
                 border-style: solid;
-                margin: 100px auto;
+                margin: 220px auto 30px auto;
                 width: 90%;
             }
             #artista>p{
@@ -34,22 +34,67 @@
             #artista>img{
                 position: relative;
                 width: 400px;
-                margin: 0px 450px 30px 450px;
-                border:black 1px;
+                margin: -150px auto 30px;
+                border: #302860 20px;
+                border-style: solid;
             }
             #contato{
                 display: flex;
-                flex-direction:column;
+                justify-content:center;
+                flex-direction: column;
                 border: #c7c6e1;
                 border-style: solid;
-                margin: 100px auto;
+                margin: 50px auto;
                 width: 90%;
             }
             #contato>h1{
-                margin: 15px 600px;
+                margin: -1.5em auto 30px;
                 color: #c7c6e1;
                 font-family: 'Zilla Slab', serif;
                 font-size: big;
+                border: #302860 20px;
+                border-style: solid;
+                background: #302860;
+                border-radius: 30px;
+                text-align: center;
+            }
+            #contato>div{
+                text-align: center;
+                margin: 30px auto;
+            }
+            #contato>div>a{
+                color: #c7c6e1;
+                margin: auto 80px;
+                font-size: 30px;
+            }
+            #contato>div>p{
+                color: #c7c6e1;
+                margin: auto 80px;
+                font-size: 30px;
+            }
+            #email #icon{
+                color: #c7c6e1;
+                margin: auto auto;
+                font-size: 30px;
+            }
+            #email:hover #icon{
+                display: none;
+            }
+            #email>div{
+                display: none;
+            }
+            #email:hover>div{
+                color: #c7c6e1;
+                margin: auto auto;
+                font-size: 30px;
+            }
+            #comentario{
+                display: flex;
+                flex-direction: row;
+                color: #c7c6e1;
+                margin: 45px 80px;
+                font-size: 30px;
+                text-align: center;
             }
         </style>
     </head>
@@ -58,13 +103,13 @@
         <div class="ui large inverted top fixed menu">
             <div class="ui container">
             <a class="item" href="/index.html">Home</a>
-            <a class="item" href="/pages/sobre_a_artista.html">Sobre a Artista</a>
             <a class="item" href="/pages/branca_de_neve.html">Branca de Neve</a>
             <a class="item" href="/pages/mulan.html">Mulan</a>
             <a class="item" href="/pages/hora_de_aventura.html">Hora de Aventura</a>
             <a class="item" href="/pages/avatar.html">Avatar: a Lenda de Aang</a>
             <a class="item" href="/pages/harry_potter.html">Harry Potter</a>
             <a class="item" href="/pages/vingadores.html">Vingadores</a>
+            <a class="item" href="/pages/sobre_a_artista.html">Sobre a Artista</a>
             </div>
         </div>
         <div id="artista">
@@ -74,7 +119,17 @@
         </div>
         <div id="contato">
             <h1>Contato</h1>
-            <i class="envelope open outline icon"></i>
+            <div>
+                <a onmouseover="emailPopUp" onmouseout="iconBack" id="email">
+                    <i class="envelope outline icon" id="icon"></i>
+                    <div class="ui compact message" id="message" style="display: none">
+                        <p>Hello!</p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/bruna-galib-081b17178/"><i class="linkedin icon"></i></a>      
+                <a href="https://www.facebook.com/bruna.galib/"><i class="facebook icon"></i></a>
+                <a href="https://www.instagram.com/brugalib.art/"><i class="instagram icon"></i></a>
+            </div>
         </div>
         <div id="artista">
             <img class="ui circular image" src="/images/eu_e_leticia.jpg">
@@ -83,7 +138,52 @@
         </div>
         <div id="contato">
             <h1>Contato</h1>
-            <i class="envelope open outline icon"></i>
+            <div>                
+                <a onmouseover="emailPopUp" onmouseout="iconBack" id="email">
+                    <i class="envelope outline icon" id="icon"></i>
+                    <div class="ui compact message" id="message">
+                        <p>Hello!</p>
+                    </div>
+                </a>
+                <a href="https://www.linkedin.com/in/helena-g-702b31a3/"><i class="linkedin icon"></i></a>      
+                <a href="https://www.facebook.com/helena.guimaraes.357/"><i class="facebook icon"></i></a>
+                <a href="https://www.instagram.com/helena_guima/?hl=pt-br"><i class="instagram icon"></i></a>
+                <a href="https://github.com/higuima"><i class="github icon"></i></a>
+                <a href="https://higuima.github.io/"><i class="user  icon"></i></a>
+            </div>
         </div>
+        <div id="contato">
+            <h1>Comentários</h1>
+            <div id="comentario">                
+                <p>Gostou da exposição? Comente o que achou :)</p>
+                <a href="https://forms.gle/3Py5s3yhtTAkjL5u5"><i class="edit outline icon"></i></a>
+            </div>
+        </div>
+        <script>
+            let email = document.getElementById("email");
+            let icon = document.getElementById("icon");
+            let message = document.getElementById("message");
+
+            console.log(email.style)
+
+            function emailPopUp(){
+                email.addEventListener("mouseover", (e)=>{
+                    icon.style.display = none;
+                    message.style.display = block;
+                    console.log("in");
+                })
+            }
+            
+            function iconBack(){
+                email.addEventListener("mouseout", (e)=>{
+                    message.style.display = none;
+                    email.style.display = icon;
+                    console.log("out");
+                })
+            }
+            
+            emailPopUp()
+            iconBack()
+        </script>
     </body>
 </html>
