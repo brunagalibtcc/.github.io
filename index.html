@@ -57,10 +57,25 @@
             lastClicked = 0;
           }
           camera.lookAt(walls[lastClicked].position);
+          spotLight.lookAt(walls[lastClicked].position);
           renderer.render(scene, camera);
         });
       });
 
+      var spotLight = new THREE.PointLight( 0xff0000, 1);
+      spotLight.position.set( 0, 42, 0 );
+      spotLight.angle = Math.PI / 4;
+      spotLight.penumbra = 0.5;
+      spotLight.decay = 1;
+      spotLight.distance = 20;
+      spotLight.castShadow = true;
+      spotLight.shadow.mapSize.width = 1024;
+      spotLight.shadow.mapSize.height = 1024;
+      spotLight.shadow.camera.near = 10;
+      spotLight.shadow.camera.far = 100;
+      spotLight.shadow.camera.fov = 45;
+      
+      scene.add( spotLight );
       
 
     </script>
