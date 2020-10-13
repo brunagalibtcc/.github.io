@@ -29,11 +29,12 @@ function createWall(radius, height,  texture, alphaTexture){
     mesh.position.z = radius * Math.cos(Math.PI * instance / 4);
     mesh.position.y = 40;
     mesh.rotation.y = instance * Math.PI / 4;
-  
+    
     result.push(mesh);
     scene.add(mesh);
   }
   return result
+  
 }
 
 const wallsPromise = Promise.all([
@@ -76,7 +77,7 @@ Promise.all([
 
 Promise.all([
   loadTexture('/images/icons/BN_icone.png'),
-  loadTexture('/images/icons/HP_icone.png'),
+  loadTexture('/images/icons/HP_borda.png'),
   loadTexture('/images/icons/avatar_icone.png'),
   loadTexture('/images/icons/HA_icone.png'),
   loadTexture('/images/icons/mulan_icone.png'),
@@ -90,9 +91,27 @@ Promise.all([
     mesh.position.z = radius * Math.cos(Math.PI * instance / 4);
     mesh.position.y = 40;
     mesh.rotation.y = instance * Math.PI / 4;
-    
     scene.add(mesh);
-
   }
   renderer.render(scene, camera);
 });
+
+let color = [];
+let spotlight; 
+function light(color){
+  const spotlights = [];
+  color = ['#ec0035', '#00eb31', '#fd7622', '#fcd305', '#25b2c2', '#5600a0'];
+  for (let instance = 1; instance <= 6; instance++){
+    spotLight = new THREE.SpotLight(color[instance-1] , 1.5, Math.PI/-4);
+    spotLight.position.set(20 * Math.sin(Math.PI * instance / 4), 40, 30 * Math.cos(Math.PI * instance / 4));
+    var spotLightHelper = new THREE.SpotLightHelper( spotLight );
+    scene.add( spotLightHelper );
+
+    spotlights.push(spotlight);
+    scene.add(spotLight);
+  }
+  return spotlights;
+  
+}
+
+light();
