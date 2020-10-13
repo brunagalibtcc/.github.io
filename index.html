@@ -44,23 +44,61 @@
     <script src="js/texture_loader.js"></script>
     <script src="js/octogono.js"></script>
     <script>
+      camera.position.y = 40;
       camera.position.x = 0;
-      camera.position.y = 60;
-      camera.position.z = 60;
-      wallsPromise.then((walls)=> {
-        camera.lookAt(walls[0].position);
-        renderer.render(scene, camera);
-        let lastClicked = 0;
-        document.addEventListener('click', () => {
-          lastClicked++;
-          if (lastClicked == walls.length) {
-            lastClicked = 0;
-          }
-          camera.lookAt(walls[lastClicked].position);
-          renderer.render(scene, camera);
-        });
-      });
+      camera.position.z = 0;
 
+      document.addEventListener('mousedown', onMouseDown);
+      document.addEventListener('mousemove', onMouseMove);
+      document.addEventListener('mouseup', onMouseUp);
+
+      var mouseDown = false,
+        lastMoveX = null,
+        lastMoveY = null,
+        INITIAL_TETA = 1.40,
+        INITIAL_PHI = 0.20,
+        INITIAL_RADIUS = 1000000,
+        cameraRadius = INITIAL_RADIUS,
+        vertical = INITIAL_TETA,
+        cameraLookAt = new THREE.Vector3(0,40,0),
+        horizontal = INITIAL_PHI;
+
+
+      function onMouseDown(e){
+        mouseDown = true;
+        lastMoveX = e.clientX;
+        lastMoveY = e.clientY;
+      }
+
+      function onMouseMove(e){
+        if (mouseDown){
+          horizontal += (e.x - lastMoveX) / 10000;
+          vertical += (e.y - lastMoveY) / 10000;
+          if (vertical > (Math.PI/3)*2){
+            vertical = (Math.PI/3)*2;
+          }
+          if (vertical < Math.PI/3){
+            vertical = Math.PI/3;
+          }
+          updateCameraPosition();
+          lastMove = e;
+        }
+      }
+
+      function onMouseUp(e){
+        mouseDown = false;
+      }
+      
+      function updateCameraPosition() {
+        cameraLookAt.x = cameraRadius * Math.sin(vertical) * Math.cos(horizontal);
+        cameraLookAt.z = cameraRadius * Math.sin(vertical) * Math.sin(horizontal);
+        cameraLookAt.y = cameraRadius * Math.cos(vertical);
+        camera.lookAt(cameraLookAt);
+        renderer.render(scene, camera);
+      }
+
+
+      updateCameraPosition();
 
     </script>
   </body>

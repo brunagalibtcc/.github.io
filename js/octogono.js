@@ -103,7 +103,6 @@ function light(color){
   color = ['#ec0035', '#00eb31', '#fd7622', '#fcd305', '#25b2c2', '#5600a0'];
   for (let instance = 1; instance <= 6; instance++){
     spotLight = new THREE.SpotLight(color[instance-1] , 1.5, Math.PI/-4);
-    console.log(color[instance - 1]);
     spotLight.position.set(20 * Math.sin(Math.PI * instance / 4), 40, 30 * Math.cos(Math.PI * instance / 4));
     var spotLightHelper = new THREE.SpotLightHelper( spotLight );
     scene.add( spotLightHelper );
@@ -111,7 +110,6 @@ function light(color){
     spotlights.push(spotlight);
     scene.add(spotLight);
   }
-  console.log(spotlights);
   return spotlights;
   
 }
