@@ -2,7 +2,7 @@ const radius = 0;
 const height = 0; 
 
 function createMesh(radius, height,  texture, alphaTexture){
-  const geometry = new THREE.BoxGeometry(radius, height, 1);
+  const geometry = new THREE.BoxGeometry(radius, height, 0.5);
   const material = new THREE.MeshStandardMaterial({
     map: texture,
     color: 0xffffff,
@@ -102,11 +102,10 @@ function light(color){
   const spotlights = [];
   color = ['#ec0035', '#00eb31', '#fd7622', '#fcd305', '#25b2c2', '#5600a0'];
   for (let instance = 1; instance <= 6; instance++){
-    spotLight = new THREE.SpotLight(color[instance-1] , 1.5, Math.PI/-4);
-    spotLight.position.set(20 * Math.sin(Math.PI * instance / 4), 40, 30 * Math.cos(Math.PI * instance / 4));
+    spotLight = new THREE.SpotLight(color[instance-1] , 2, Math.PI/-4);
+    spotLight.position.set(30*Math.sin(Math.PI * instance / 4),45,10* Math.cos(Math.PI * instance /4));
     var spotLightHelper = new THREE.SpotLightHelper( spotLight );
     scene.add( spotLightHelper );
-
     spotlights.push(spotlight);
     scene.add(spotLight);
   }
