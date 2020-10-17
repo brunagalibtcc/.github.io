@@ -54,7 +54,7 @@ Promise.all([
 ]).then(textures=>createWall(100, 80, textures[0], textures[1]));
 
 
-Promise.all([
+const fundosPromise = Promise.all([
   loadTexture('/images/fundos/BN_fundo.png'),
   loadTexture('/images/fundos/HP_fundo.png'),
   loadTexture('/images/fundos/avatar_fundo.png'),
@@ -64,6 +64,7 @@ Promise.all([
 ]).then(textures=>{
   const radius = 30;
   const height = 20;
+  const fundos = [];
   for (let instance = 1; instance <= 6; instance++) {
     const mesh = createMesh(20, height,  textures[instance-1], textures[instance-1]);
     mesh.position.x = radius * Math.sin(Math.PI * instance / 4);
@@ -71,9 +72,35 @@ Promise.all([
     mesh.position.y = 40;
     mesh.rotation.y = instance * Math.PI / 4;
     scene.add(mesh);
+    fundos.push(mesh);
   }
   renderer.render(scene, camera);
+  return fundos;
 });
+
+
+
+function light(fundos){
+  const spotlights = [];
+  const radius = 0;
+  const color = ['#ec0035', '#00eb31', '#fd7622', '#fcd305', '#25b2c2', '#5600a0'];
+  for (let instance = 1; instance <= 6; instance++){
+    let spotLight = new THREE.SpotLight(color[instance-1] , 2, 60, 0.4);
+    spotLight.position.set(radius*Math.sin(Math.PI * instance / 4),50,radius* Math.cos(Math.PI * instance /4));
+    spotLight.castShadow = true;
+    spotLight.target = fundos[instance -1];
+    console.log(fundos[instance -1].position);
+    spotLight.shadow.focus = 1;
+    scene.add(spotLight);
+    spotlights.push(spotLight);
+  }
+  return spotlights;  
+}
+
+fundosPromise.then((fundos)=> {
+  light(fundos);
+})
+
 
 Promise.all([
   loadTexture('/images/icons/BN_icone.png'),
@@ -87,6 +114,7 @@ Promise.all([
   const height = 3;
   for (let instance = 1; instance <= 6; instance++) {
     const mesh = createMesh(3, height,  textures[instance-1], textures[instance-1]);
+    mesh.userData = { URL: "/pages/branca_de_neve.html"}
     mesh.position.x = radius * Math.sin(Math.PI * instance / 4);
     mesh.position.z = radius * Math.cos(Math.PI * instance / 4);
     mesh.position.y = 40;
@@ -96,21 +124,3 @@ Promise.all([
   renderer.render(scene, camera);
 });
 
-let color = [];
-let spotlight; 
-function light(color){
-  const spotlights = [];
-  color = ['#ec0035', '#00eb31', '#fd7622', '#fcd305', '#25b2c2', '#5600a0'];
-  for (let instance = 1; instance <= 6; instance++){
-    spotLight = new THREE.SpotLight(color[instance-1] , 2, Math.PI/-4);
-    spotLight.position.set(30*Math.sin(Math.PI * instance / 4),45,10* Math.cos(Math.PI * instance /4));
-    var spotLightHelper = new THREE.SpotLightHelper( spotLight );
-    scene.add( spotLightHelper );
-    spotlights.push(spotlight);
-    scene.add(spotLight);
-  }
-  return spotlights;
-  
-}
-
-light();
