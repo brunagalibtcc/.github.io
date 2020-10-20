@@ -170,14 +170,24 @@
 
     cube();
 
-    projector = new THREE.Projector();
-    mouseVector = new THREE.Vector3();
+    var raycaster = new THREE.Raycaster();
+      var mouse = new THREE.Vector2();
 
-    window.addEventListener( 'mousemove', movingMouse, false );
-    function movingMouse(){
-      mouseVector.x = 2 * (e.clientX / containerWidth) - 1;
-      mouseVector.y = 1 - 2 * ( e.clientY / containerHeight );
-    }
+      function render() {
+        raycaster.setFromCamera( mouse, camera )
+        var intersects = raycaster.intersectObjects( scene.children );
+
+        for ( var i = 0; i < intersects.length; i++ ) {
+          intersects[ i ].object.material.color.set( 0xff0000 );
+          console.log(intersects[i]);
+        }
+
+        renderer.render( scene, camera );
+
+      }
+
+      window.requestAnimationFrame(render);
+      render();
     
 
   </script>
