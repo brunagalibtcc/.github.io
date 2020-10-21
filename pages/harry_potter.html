@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" href="/semantic/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;        
+      }
+      body.pushable{
+        background: #302860!important;
+      }
+      .ui.container{
+        font-family: 'Rokkitt', serif;
+        font-size: 17px;
+      }
+      #layout{
+        display: flex;
+        flex-direction: row;
+      }
+      #obra{
+        display: flex;
+        flex-direction: column;
+        background: #222322;
+        margin: 100px 70px;
+        width: 50%;
+      }
+      #obra>img{
+        position: relative;
+        width: 400px;
+        margin: 50px auto;
+      }
+      #obra>div{
+        position: relative;
+        width: 400px;
+        margin: 35px 100px;
+      }
+      #obra>hr{
+        border: solid;
+        border-color: #228b22;
+        width: 500px;
+        height: 0px;
+      }
+      #obra>p{
+        color: white;
+        font-family: 'Rokkitt', serif;
+        font-size: medium;
+        margin: 10px auto 20px auto;
+        text-align: center;
+      }
+      #texto{
+        display: flex;
+        flex-direction: column;
+        background: #222322;
+        margin: 100px 70px;
+        width: 50%;
+      }
+      #texto>p{
+        color: white;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 25px;
+        margin: 50px 50px;
+        text-align: justify;
+      }
+      #texto>hr{
+        border: solid;
+        border-color: #228b22;
+        width: 500px;
+        height: 0px;
+      }
+      #titulo{
+        font-size: 40px !important;
+        font-family: 'Princess Sofia', cursive !important;
+        text-align: center !important;
+        margin:30px 30px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <body class="pushable">
+      <div class="ui large inverted top fixed menu">
+        <div class="ui container">
+          <a class="item" href="/index.html">Home</a>
+          <a class="item" href="/pages/branca_de_neve.html">Branca de Neve</a>
+          <a class="item" href="/pages/mulan.html">Mulan</a>
+          <a class="item" href="/pages/hora_de_aventura.html">Hora de Aventura</a>
+          <a class="item" href="/pages/avatar.html">Avatar: a Lenda de Aang</a>
+          <a class="item" href="/pages/harry_potter.html">Harry Potter</a>
+          <a class="item" href="/pages/vingadores.html">Vingadores</a>
+          <a class="item" href="/pages/sobre_a_artista.html">Sobre a Artista</a>
+        </div>
+      </div>
+      <div id="layout">
+        <div id="obra">
+            <img src="/images/harry_potter/resistencia_estudantil.jpg">
+            <p>Resistência Estudantil (2020, Aquarela e Nanquim, 210 x 297 mm)</p>
+            <hr></hr>
+            <img src="/images/harry_potter/feitico_de_proteu.jpg">
+            <p>Feitiço de Proteu (2020, Unha Postiça e E.V.A, 2172 x 2816 pixels)</p>
+            <hr></hr>
+            <img id="img" src="/images/harry_potter/a_melhor_amiga_dos_ladroes_e_saqueadores_1.jpg">
+            <p>A Melhor Amiga dos Ladrões e Saqueadores (2020, Papel Machê, tinta Acrílica e Velas, 210 x 140 x 140 mm)</p>
+        </div>
+        <div id="texto">
+          <p id="titulo">“Há coisas que não se pode fazer junto sem acabar gostando um do outro, e derrubar um trasgo montanhês de quase quatro metros de altura é uma dessas coisas”</p>
+          <p id="titulo">Harry Potter e a Pedra Filosofal</p>
+          <hr></hr>
+          <p>Sinceramente eu sou incapaz de definir o momento em que comecei a gostar de Harry Potter. É uma franquia que esteve presente na minha vida talvez até no momento do meu nascimento e eu nem sei. Harry Potter sempre foi um elo muito forte entre eu e minhas duas melhores amigas de infância. Desde novinha brincávamos que éramos bruxas em Hogwarts fugindo do malvado Voldemort, aguentando as chateações de Malfoy e dançando no Baile de Inverno. Sempre foi um amor compartilhado que dura até os dias de hoje, mesmo após 17 anos de amizade. Nós três inclusive resolvemos ler toda a saga de livro juntas durante o período de quarentena. Quando se é adulto você passa a enxergar as coisas da sua infância de forma diferente, e agora enxergo essa saga de forma muito mais aprofundada de como via aos 7 anos e talvez por isso meu apego para com ela só tenha se tornado mais estreito. Harry Potter é um dos meus maiores orgulhos de infância, e para sempre será durante minha vida adulta.</p>
+        </div>
+      </div>
+      <script>
+        let images = ["/images/harry_potter/a_melhor_amiga_dos_ladroes_e_saqueadores_2.jpg", "/images/harry_potter/a_melhor_amiga_dos_ladroes_e_saqueadores_3.jpg", "/images/harry_potter/a_melhor_amiga_dos_ladroes_e_saqueadores_4.jpg", "/images/harry_potter/a_melhor_amiga_dos_ladroes_e_saqueadores_5.jpg", "/images/harry_potter/a_melhor_amiga_dos_ladroes_e_saqueadores_1.jpg"];
+        console.log(images);
+        let image = 0;
+
+        function changeIMG(){
+          document.getElementById('img').src= images[image];
+            image++;
+            if (image == images.length){
+              image = 0;
+            }       
+          console.log(images[image])
+        };
+
+        function time(){
+          setInterval(changeIMG, 3000);
+        };        
+        
+        time();
+      </script>
+    </body>
+</html>

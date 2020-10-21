@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" href="/semantic/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;        
+      }
+      body.pushable{
+        background: #302860!important;
+      }
+      .ui.container{
+        font-family: 'Rokkitt', serif;
+        font-size: 17px;
+      }
+      #layout{
+        display: flex;
+        flex-direction: row;
+      }
+      #obra{
+        display: flex;
+        flex-direction: column;
+        background: #222322;
+        margin: 100px 70px;
+        width: 50%;
+      }
+      #obra>img{
+        position: relative;
+        width: 400px;
+        margin: 50px auto;
+      }
+      #obra>div{
+        position: relative;
+        width: 400px;
+        margin: 35px 100px;
+      }
+      #obra>hr{
+        border: solid;
+        border-color: #ffdb58;
+        width: 500px;
+        height: 0px;
+      }
+      #obra>p{
+        color: white;
+        font-family: 'Rokkitt', serif;
+        font-size: medium;
+        margin: 10px auto 20px auto;
+        text-align: center;
+      }
+      #texto{
+        display: flex;
+        flex-direction: column;
+        background: #222322;
+        margin: 100px 70px;
+        width: 50%;
+      }
+      #texto>p{
+        color: white;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 25px;
+        margin: 50px 50px;
+        text-align: justify;
+      }
+      #texto>hr{
+        border: solid;
+        border-color: #ffdb58;
+        width: 500px;
+        height: 0px;
+      }
+      #titulo{
+        font-size: 40px !important;
+        font-family: 'Princess Sofia', cursive !important;
+        text-align: center !important;
+        margin:30px 30px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <body class="pushable">
+      <div class="ui large inverted top fixed menu">
+        <div class="ui container">
+          <a class="item" href="/index.html">Home</a>
+          <a class="item" href="/pages/branca_de_neve.html">Branca de Neve</a>
+          <a class="item" href="/pages/mulan.html">Mulan</a>
+          <a class="item" href="/pages/hora_de_aventura.html">Hora de Aventura</a>
+          <a class="item" href="/pages/avatar.html">Avatar: a Lenda de Aang</a>
+          <a class="item" href="/pages/harry_potter.html">Harry Potter</a>
+          <a class="item" href="/pages/vingadores.html">Vingadores</a>
+          <a class="item" href="/pages/sobre_a_artista.html">Sobre a Artista</a>
+        </div>
+      </div>
+      <div id="layout">
+        <div id="obra">
+            <img src="/images/hora_de_aventura/prismo.jpg">
+            <p>Prismo (2020, Colagem, 190 x 190 mm)</p>
+            <hr></hr>
+            <img src="/images/hora_de_aventura/que_horas_sao.jpg">
+            <p>Que Horas São? (2020, Unha Postiça, Folhas e Pirulito, 2893 x 3751 pixels)</p>
+            <hr></hr>
+            <img id="img" src="/images/hora_de_aventura/nao_podemos_mais_jogar_video_game_1.jpg">
+            <p>Não Podemos Mais Jogar Vídeo Game? (2019, Pedra Sabão, 155 x 80 x 55 mm)</p>
+        </div>
+        <div id="texto">
+          <p id="titulo">“Para viver a vida, você precisa de problemas. Se você tiver tudo o que deseja no minuto em que deseja, qual é o sentido de viver?”</p>
+          <p id="titulo">Jake</p>
+          <hr></hr>
+          <p>Um dos grandes sucessos da Cartoon Network, Hora de Aventura é o tipo de animação de comédia leve de assistir e que cativa tanto o público jovem quanto o adulto. Não consigo definir em que momento comecei a ter interesse pela série, mas foi de cara algo muito forte em mim. Tenho uma afeição extremamente forte por todos os personagens e toda a história por trás da série é completamente genial. Hora de Aventura marcou o período da minha adolescência, uma época um pouco menos colorida do que a infância, mas que foi uma das responsáveis por manter eternizada a Bruna Adolescente Doidinha Das Ideias, uma fase minha que apesar da vergonha, tenho orgulho e saudade. Atualmente a série já chegou ao fim, mas na época lembro de ficar horas e horas formulando teorias na minha cabeça sobre possíveis acontecimentos.</p>
+        </div>
+      </div>
+      <script>
+        let images = ["/images/hora_de_aventura/nao_podemos_mais_jogar_video_game_2.jpg", "/images/hora_de_aventura/nao_podemos_mais_jogar_video_game_3.jpg", "/images/hora_de_aventura/nao_podemos_mais_jogar_video_game_4.jpg", "/images/hora_de_aventura/nao_podemos_mais_jogar_video_game_1.jpg"];
+        console.log(images);
+        let image = 0;
+
+        function changeIMG(){
+          document.getElementById('img').src= images[image];
+            image++;
+            if (image == images.length){
+              image = 0;
+            }       
+          console.log(images[image])
+        };
+
+        function time(){
+          setInterval(changeIMG, 3000);
+        };        
+        
+        time();
+      </script>
+    </body>
+</html>

@@ -1,0 +1,140 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/semantic/semantic.min.css">
+    <link rel="stylesheet" href="/semantic/main.css">
+    <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
+    <style>
+      body {
+        margin: 0;
+        padding: 0;        
+      }
+      body.pushable{
+        background: #302860!important;
+      }
+      .ui.container{
+        font-family: 'Rokkitt', serif;
+        font-size: 17px;
+      }
+      #layout{
+        display: flex;
+        flex-direction: row;
+      }
+      #obra{
+        display: flex;
+        flex-direction: column;
+        background: #222322;
+        margin: 100px 70px;
+        width: 50%;
+      }
+      #obra>img{
+        position: relative;
+        width: 400px;
+        margin: 50px auto;
+      }
+      #obra>div{
+        position: relative;
+        width: 400px;
+        margin: 35px 100px;
+      }
+      #obra>hr{
+        border: solid;
+        border-color: #9932cc;
+        width: 500px;
+        height: 0px;
+      }
+      #obra>p{
+        color: white;
+        font-family: 'Rokkitt', serif;
+        font-size: medium;
+        margin: 10px auto 20px auto;
+        text-align: center;
+      }
+      #texto{
+        display: flex;
+        flex-direction: column;
+        background: #222322;
+        margin: 100px 70px;
+        width: 50%;
+      }
+      #texto>p{
+        color: white;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 25px;
+        margin: 50px 50px;
+        text-align: justify;
+      }
+      #texto>hr{
+        border: solid;
+        border-color: #9932cc;
+        width: 500px;
+        height: 0px;
+      }
+      #titulo{
+        font-size: 40px !important;
+        font-family: 'Princess Sofia', cursive !important;
+        text-align: center !important;
+        margin:30px 30px !important;
+      }
+    </style>
+  </head>
+  <body>
+    <body class="pushable">
+      <div class="ui large inverted top fixed menu">
+        <div class="ui container">
+          <a class="item" href="/index.html">Home</a>
+          <a class="item" href="/pages/branca_de_neve.html">Branca de Neve</a>
+          <a class="item" href="/pages/mulan.html">Mulan</a>
+          <a class="item" href="/pages/hora_de_aventura.html">Hora de Aventura</a>
+          <a class="item" href="/pages/avatar.html">Avatar: a Lenda de Aang</a>
+          <a class="item" href="/pages/harry_potter.html">Harry Potter</a>
+          <a class="item" href="/pages/vingadores.html">Vingadores</a>
+          <a class="item" href="/pages/sobre_a_artista.html">Sobre a Artista</a>
+        </div>
+      </div>
+      <div id="layout">
+        <div id="obra">
+            <img src="/images/vingadores/eterno_rei.jpg">
+            <p>Eterno Rei (2020, Isogravura, 420 x 297 mm)</p>
+            <hr></hr>
+            <img src="/images/vingadores/assemble.jpg">
+            <p>Assemble (2020, Unha Postiça e Pedras, 2734 x 3545 pixels)</p>
+            <hr></hr>
+            <img id="img" src="/images/vingadores/1988_1.jpg">
+            <p>1988 (2020, Fita Cassete, Papel Adesivo e tinta Spray, 70 x 108 x 17 mm)</p>
+        </div>
+        <div id="texto">
+          <p id="titulo">“Parte da jornada é o fim”</p>
+          <p id="titulo">Tony Stark</p>
+          <hr></hr>
+          <p>Histórias em Quadrinhos nunca foram realmente meu forte, sempre preferi ler os mangás japoneses. Por conta disso, durante minha infância e juventude os famosos heróis de empresas como DC e Marvel nunca me despertaram tanto interesse como Naruto despertava. Foi só quando ingressei na faculdade que comecei a tomar gosto por esses personagens. Logo que conheci os primeiros Vingadores, a forma que eles trabalhavam juntos, com comentários irônicos e cheios de piada, me atraiu. Assim que descobri que a Marvel trabalhava com filmes interligados e cheios de referências entre si eu fui obrigada a assistir todos e entender esses detalhes, entrar mais a fundo na história. Continuo não sendo o tipo de fã de acompanha as publicações em HQ’s, até porque meu Deus, que confusão! Ainda assim sempre que posso tento conferir informações sobre os personagens dentro do universo dos quadrinhos. Mas sinceramente, logo eu desisto porque meu Deus, que confusão! Possuo um carinho muito forte pela saga dos Vingadores, ela fez parte dos meus anos de faculdade e sempre vai me lembrar desse período conturbado porém divertido, onde conheci pessoas muito especiais que sei que não fazem mais tanto parte da minha vida assim. Devido à pandemia não pude me despedir de vários queridos.</p>
+        </div>
+      </div>
+      <script>
+        let images = ["/images/vingadores/1988_2.jpg", "/images/vingadores/1988_3.jpg", "/images/vingadores/1988_1.jpg"];
+        console.log(images);
+        let image = 0;
+
+        function changeIMG(){
+          document.getElementById('img').src= images[image];
+            image++;
+            if (image == images.length){
+              image = 0;
+            }       
+          console.log(images[image])
+        };
+
+        function time(){
+          setInterval(changeIMG, 3000);
+        };        
+        
+        time();
+      </script>
+    </body>
+</html>
