@@ -55,10 +55,10 @@ Promise.all([
 
 
 const fundosPromise = Promise.all([
-  loadTexture('/images/fundos/BN_fundo.png'),
-  loadTexture('/images/fundos/HP_fundo.png'),
+  loadTexture('/images/fundos/bn_fundo.png'),
+  loadTexture('/images/fundos/hp_fundo.png'),
   loadTexture('/images/fundos/avatar_fundo.png'),
-  loadTexture('/images/fundos/HA_fundo.png'),
+  loadTexture('/images/fundos/ha_fundo.png'),
   loadTexture('/images/fundos/mulan_fundo.png'),
   loadTexture('/images/fundos/vingadores_fundo.png')
 ]).then(textures=>{
@@ -82,15 +82,15 @@ const fundosPromise = Promise.all([
 function light(fundos){
   const spotlights = [];
   const radius = 0;
-  const color = ['#ec0035', '#00eb31', '#fd7622', '#fcd305', '#25b2c2', '#5600a0'];
+  const color = ['#cc0000', '#00eb31', '#f75413' , '#ff8c00', '#25b2f2', '#bb00ff'];
   for (let instance = 1; instance <= 6; instance++){
     let spotLight = new THREE.SpotLight(
       color[instance-1], // color
-      0.5, // intensity
+      1, // intensity
       1000, // distance
       0.2, // angle
-      1, // penumbra
-      1.5 // decay
+      0.5, // penumbra
+      2 // decay
     );
 
     spotLight.position.set(radius*Math.sin(Math.PI * instance / 4),70,radius* Math.cos(Math.PI * instance /4));
@@ -118,16 +118,18 @@ fundosPromise.then((fundos)=> {
 
 
 Promise.all([
-  loadTexture('/images/icons/BN_icone.png'),
+  loadTexture('/images/icons/branca_de_neve.png'),
   loadTexture('/images/icons/HP_borda.png'),
-  loadTexture('/images/icons/avatar_icone.png'),
-  loadTexture('/images/icons/HA_icone.png'),
-  loadTexture('/images/icons/mulan_icone.png'),
-  loadTexture('/images/icons/vingadores_icone.png')
+  loadTexture('/images/icons/avatar.png'),
+  loadTexture('/images/icons/hora_de_aventura.png'),
+  loadTexture('/images/icons/mulan.png'),
+  loadTexture('/images/icons/vingadores.png')
 ]).then(textures=>{
   const icons = [];
   const radius = 25;
   const height = 3;
+  let t;
+  t += 0.01;
   const URL = ["/pages/branca_de_neve.html", "/pages/harry_potter.html", "/pages/avatar.html", "/pages/hora_de_aventura.html", "/pages/mulan.html", "/pages/vingadores.html"]
   for (let instance = 1; instance <= 6; instance++) {
     const mesh = createMesh(3, height,  textures[instance-1], textures[instance-1]);

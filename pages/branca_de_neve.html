@@ -5,6 +5,11 @@
     <link rel="stylesheet" href="/semantic/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab:ital,wght@1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zeyada&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Calligraffitti&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Princess+Sofia&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond&display=swap" rel="stylesheet">
     <style>
       body {
         margin: 0;
@@ -17,43 +22,65 @@
         font-family: 'Rokkitt', serif;
         font-size: 17px;
       }
-      #obra1{
+      #layout{
         display: flex;
-        background: #222322;
-        margin: 100px auto;
-        width: 90%;
+        flex-direction: row;
       }
-      #obra1>img{
+      #obra{
+        display: flex;
+        flex-direction: column;
+        background: #222322;
+        margin: 100px 70px;
+        width: 50%;
+      }
+      #obra>img{
         position: relative;
         width: 400px;
-        margin: 35px 70px;
+        margin: 50px auto;
       }
-      #obra1>div{
+      #obra>div{
         position: relative;
         width: 400px;
         margin: 35px 100px;
       }
-      #obra2{
-        display: flex;
-        background: #222322;
-        margin: 100px auto;
-        width: 90%;
+      #obra>hr{
+        border: solid;
+        border-color: #9E1A1A;
+        width: 500px;
+        height: 0px;
       }
-      #obra2>div{
-        position: relative;
-        width: 400px;
-        margin: 35px 150px;
-      }
-      #obra2>img{
-        margin: auto 150px;
-      }
-      hr{
-        border-color:red;
-      }
-      p{
+      #obra>p{
         color: white;
-        font-family: 'Zilla Slab', serif;
+        font-family: 'Rokkitt', serif;
         font-size: medium;
+        margin: 10px auto 20px auto;
+        text-align: center;
+      }
+      #texto{
+        display: flex;
+        flex-direction: column;
+        background: #222322;
+        margin: 100px 70px;
+        width: 50%;
+      }
+      #texto>p{
+        color: white;
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 25px;
+        margin: 50px 50px;
+        text-align: justify;
+      }
+      #texto>hr{
+        border: solid;
+        border-color: #9E1A1A;
+        width: 500px;
+        height: 0px;
+      }
+      #titulo{
+        font-size: 40px !important;
+        font-family: 'Princess Sofia', cursive !important;
+        text-align: center !important;
+        margin:30px 30px !important;
       }
     </style>
   </head>
@@ -68,37 +95,29 @@
           <a class="item" href="/pages/avatar.html">Avatar: a Lenda de Aang</a>
           <a class="item" href="/pages/harry_potter.html">Harry Potter</a>
           <a class="item" href="/pages/vingadores.html">Vingadores</a>
-          <a class="item" href="/pages/contato.html">Contato</a>
           <a class="item" href="/pages/sobre_a_artista.html">Sobre a Artista</a>
         </div>
       </div>
-      <div id="obra1">
-        <img src="/images/Branca de neve/nao_aceite_doces_de_estranhos.png">
-        <div>
-          <p>Não aceite doces de estranhos</p>
-          <hr></hr>
-          <p>A Revolução Francesa, que ocorreu no ano de 1789, é o evento que, segundo alguns autores, inaugura a chamada Idade Contemporânea. Os historiadores do século XIX, que fizeram a linha divisória da História, imputaram a este acontecimento o caráter de marco divisor entre a Idade Moderna e a Contemporânea, por conta da radicalização política que o caracterizou. Para se entender a Revolução Francesa é necessário conhecer um pouco da situação econômica e social da França do século XVIII.</p>
-          <p>Até o século XVIII, a França era um estado em que vigia o modelo do absolutismo monárquico. O então rei francês, Luís XVI, personificava o Estado, reunindo em sua pessoa os poderes legislativo, executivo e judiciário. Os franceses então não eram cidadãos de um Estado Democrático Constitucional, como hoje é comum em todo o mundo ocidental, mas eram súditos do rei. O rei personificava o Estado.</p>          
+      <div id="layout">
+        <div id="obra">
+            <img src="/images/Branca de neve/nao_aceite_doces_de_estranhos.jpg">
+            <p>Não Aceite Doces de Estranhos (2019, Calcogravura - Técnica do Breu, 297 x 420 mm)</p>
+            <hr></hr>
+            <img src="/images/Branca de neve/uma_princesa_e_sua_sina.jpg">
+            <p>Uma Princesa e Sua Sina (2020, Unha Postiça e Maçã, 503 x 652 pixels)</p>
+            <hr></hr>
+            <img id="img" src="/images/Branca de neve/prova_de_assassinato_1.jpg">
+            <p>Prova de Assassinato (2020, Técnica Mista, 75 x 90 x 90 mm)</p>
         </div>
-      </div>
-      <div id="obra2">
-        <div>
-          <p>A madrasta não é louca</p>
+        <div id="texto">
+          <p id="titulo">“Fala mágico espelho meu, quem é mais bela do que eu?”</p>
+          <p id="titulo">Rainha Má</p>
           <hr></hr>
-          <p>A Revolução Francesa, que ocorreu no ano de 1789, é o evento que, segundo alguns autores, inaugura a chamada Idade Contemporânea. Os historiadores do século XIX, que fizeram a linha divisória da História, imputaram a este acontecimento o caráter de marco divisor entre a Idade Moderna e a Contemporânea, por conta da radicalização política que o caracterizou. Para se entender a Revolução Francesa é necessário conhecer um pouco da situação econômica e social da França do século XVIII.</p>
-        </div>
-        <img src="/images/flores2.jpg">
-      </div>
-      <div id="obra1">
-        <img id="img" src="/images/flores1.jpg">
-        <div>
-          <p>Os 7 anões</p>
-          <hr></hr>          
-          <p>A Revolução Francesa, que ocorreu no ano de 1789, é o evento que, segundo alguns autores, inaugura a chamada Idade Contemporânea. Os historiadores do século XIX, que fizeram a linha divisória da História, imputaram a este acontecimento o caráter de marco divisor entre a Idade Moderna e a Contemporânea, por conta da radicalização política que o caracterizou. Para se entender a Revolução Francesa é necessário conhecer um pouco da situação econômica e social da França do século XVIII.</p>
+          <p>O primeiro longa-metragem da Disney, sendo um dos seus maiores clássicos até os dias de hoje, Branca de Neve é o tipo de filme que fez parte da infância de várias pessoas há algumas gerações. Mesmo não sendo uma das princesas mais populares e amadas atualmente, Branca de Neve possui um lugar especial no meu coração, não apenas por ser sim uma personagem extremamente importante para os estúdios Disney, mas pelas memórias maravilhosas que ela me traz. Memórias de tempos mais fáceis onde minha única preocupação era brincar com todas as minhas bonecas igualmente para que nenhuma se sentisse excluída, ou menos amada.</p>
         </div>
       </div>
       <script>
-        let images = ["/images/flores1.jpg", "/images/tigre1.jpg", "/images/eu_e_leticia.jpg"];
+        let images = ["/images/Branca de neve/prova_de_assassinato_2.jpg", "/images/Branca de neve/prova_de_assassinato_3.jpg", "/images/Branca de neve/prova_de_assassinato_4.jpg", "/images/Branca de neve/prova_de_assassinato_1.jpg"];
         console.log(images);
         let image = 0;
 
