@@ -67,27 +67,6 @@
                 margin: auto 80px;
                 font-size: 30px;
             }
-            #contato>div>p{
-                color: #c7c6e1;
-                margin: auto 80px;
-                font-size: 30px;
-            }
-            #email #icon{
-                color: #c7c6e1;
-                margin: auto auto;
-                font-size: 30px;
-            }
-            #email:hover #icon{
-                display: none;
-            }
-            #email>div{
-                display: none;
-            }
-            #email:hover>div{
-                color: #c7c6e1;
-                margin: auto auto;
-                font-size: 30px;
-            }
             #comentario{
                 display: flex;
                 flex-direction: row;
@@ -98,7 +77,6 @@
             }
         </style>
     </head>
-    <body>
     <body class="pushable">
         <div class="ui large inverted top fixed menu">
             <div class="ui container">
@@ -120,11 +98,8 @@
         <div id="contato">
             <h1>Contato</h1>
             <div>
-                <a onmouseover="emailPopUp" onmouseout="iconBack" id="email">
+                <a href="mailto:brunagalib@gmail.com">
                     <i class="envelope outline icon" id="icon"></i>
-                    <div class="ui compact message" id="message" style="display: none">
-                        <p>Hello!</p>
-                    </div>
                 </a>
                 <a href="https://www.linkedin.com/in/bruna-galib-081b17178/"><i class="linkedin icon"></i></a>      
                 <a href="https://www.facebook.com/bruna.galib/"><i class="facebook icon"></i></a>
@@ -139,17 +114,13 @@
         <div id="contato">
             <h1>Contato</h1>
             <div>                
-                <a onmouseover="emailPopUp" onmouseout="iconBack" id="email">
+                <a href="mailto:higuima13@gmail.com">
                     <i class="envelope outline icon" id="icon"></i>
-                    <div class="ui compact message" id="message">
-                        <p>Hello!</p>
-                    </div>
                 </a>
                 <a href="https://www.linkedin.com/in/helena-g-702b31a3/"><i class="linkedin icon"></i></a>      
                 <a href="https://www.facebook.com/helena.guimaraes.357/"><i class="facebook icon"></i></a>
                 <a href="https://www.instagram.com/helena_guima/?hl=pt-br"><i class="instagram icon"></i></a>
                 <a href="https://github.com/higuima"><i class="github icon"></i></a>
-                <a href="https://higuima.github.io/"><i class="user  icon"></i></a>
             </div>
         </div>
         <div id="contato">
@@ -159,31 +130,5 @@
                 <a href="https://forms.gle/3Py5s3yhtTAkjL5u5"><i class="edit outline icon"></i></a>
             </div>
         </div>
-        <script>
-            let email = document.getElementById("email");
-            let icon = document.getElementById("icon");
-            let message = document.getElementById("message");
-
-            console.log(email.style)
-
-            function emailPopUp(){
-                email.addEventListener("mouseover", (e)=>{
-                    icon.style.display = none;
-                    message.style.display = block;
-                    console.log("in");
-                })
-            }
-            
-            function iconBack(){
-                email.addEventListener("mouseout", (e)=>{
-                    message.style.display = none;
-                    email.style.display = icon;
-                    console.log("out");
-                })
-            }
-            
-            emailPopUp()
-            iconBack()
-        </script>
     </body>
 </html>
