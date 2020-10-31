@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="semantic/semantic.min.css">
     <link rel="stylesheet" href="semantic/main.css">
     <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Zilla+Slab&display=swap" rel="stylesheet">
     <style>
       body {
         margin: 0;
@@ -19,9 +20,54 @@
         font-family: 'Rokkitt', serif;
         font-size: 17px;
       }
+      #preloader {
+        background: #3c2969;
+        border-radius: 5px;
+        border-style: solid;
+        color: #977dc6;
+        display: none;
+        flex-direction: column;
+        font-family: 'Rokkitt', serif;
+        height: 600px;
+        margin: 70px 400px;
+        position: absolute;
+        text-align: center;
+        width: 800px;
+        z-index: 2000;
+      }
+      #preloader>h1{
+        font-family: 'Zilla Slab', serif !important;
+        font-size: 100px;
+        color: #c7c6e1;
+      }
+      #preloader>div{
+        display: flex;
+        flex-direction: row;
+        color: #c7c6e1;
+      }
+      #preloader>div>div{
+        margin: auto 5px;
+        font-size: 25px;
+        text-align: center;
+      }
+      #preloader>div>div>img{
+        margin: 10px 70px;
+        height: 250px;
+        width: 250px;
+        border: solid;
+        border-radius: 5px;
+        color: #977dc6;
+      }
+      #preloader>button{
+        margin: auto 300px;
+      }
+      #loader{
+        display: block;
+      }
     </style>
   </head>
   <body>
+    <div id="content">
       <div class="ui large inverted top fixed menu">
         <div class="ui container">
           <a class="item" href="/index.html">Home</a>
@@ -34,7 +80,25 @@
           <a class="item" href="/pages/sobre_a_artista.html">Sobre a Artista</a>
         </div>
       </div>
-    <canvas></canvas>
+      <canvas></canvas>
+    </div>
+    <div class="ui active dimmer" id="loader">
+      <div class="ui massive loader"></div>
+    </div>
+    <div id="preloader">
+      <h1>Instruções</h1>
+      <div>
+        <div>
+          <p>1) Clique e arraste para os lados para navegar pelo site.</p>
+          <img src="camera_move.gif">
+        </div>
+        <div>
+          <p>2) Clique nos ícones para acessar as obras.</p>
+          <img src="gif_mousemp4_1.gif">
+        </div>
+      </div>
+      <button class="ui inverted violet button" id="button">Ok</button>
+    </div>
     <script src="js/scene.js"></script>
     <script src="js/camera.js"></script>
     <script src="js/renderer.js"></script>
@@ -42,6 +106,27 @@
     <script src="js/texture_loader.js"></script>
     <script src="js/octogono.js"></script>
     <script>
+      
+      window.onload = function(){
+        let button = document.getElementById('button');
+        let clicked;
+        button.addEventListener('click', ()=>{
+          document.getElementById('preloader').style.display = "none";
+          sessionStorage.setItem('clicked', 'true');
+        });
+        clicked = sessionStorage.getItem('clicked');
+        if (sessionStorage.getItem('clicked')){
+          console.log(sessionStorage.getItem('clicked'));
+          document.getElementById('loader').style.display = "block";
+        } else{
+          console.log(sessionStorage.getItem('clicked'));
+          document.getElementById('preloader').style.display = "flex"; 
+        }
+        setTimeout(function() {
+            document.getElementById('loader').style.display = "none";
+          }, 5000);
+      };
+
       camera.position.y = 40;
       camera.position.x = 0;
       camera.position.z = 0;
@@ -72,11 +157,11 @@
         if (mouseDown){
           horizontal += (e.x - lastMoveX) / 10000;
           vertical += (e.y - lastMoveY) / 10000;
-          if (vertical > (Math.PI/3)*2){
-            vertical = (Math.PI/3)*2;
+          if (vertical > (Math.PI/9)*5){
+            vertical = (Math.PI/9)*5;
           }
-          if (vertical < Math.PI/3){
-            vertical = Math.PI/3;
+          if (vertical < Math.PI/36*17){
+            vertical = Math.PI/36*17;
           }
           updateCameraPosition();
           lastMove = e;
