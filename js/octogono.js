@@ -55,12 +55,12 @@ Promise.all([
 
 
 const fundosPromise = Promise.all([
-  loadTexture('/images/fundos/bn_fundo.png'),
-  loadTexture('/images/fundos/hp_fundo.png'),
-  loadTexture('/images/fundos/avatar_fundo.png'),
-  loadTexture('/images/fundos/ha_fundo.png'),
-  loadTexture('/images/fundos/mulan_fundo.png'),
-  loadTexture('/images/fundos/vingadores_fundo.png')
+  loadTexture('/images/fundos/branca_de_neve.png'),
+  loadTexture('/images/fundos/harry_potter.png'),
+  loadTexture('/images/fundos/avatar.png'),
+  loadTexture('/images/fundos/hora_de_aventura.png'),
+  loadTexture('/images/fundos/mulan.png'),
+  loadTexture('/images/fundos/vingadores.png')
 ]).then(textures=>{
   const radius = 30;
   const height = 20;
@@ -117,9 +117,9 @@ fundosPromise.then((fundos)=> {
 })
 
 
-Promise.all([
+const iconsPromise = Promise.all([
   loadTexture('/images/icons/branca_de_neve.png'),
-  loadTexture('/images/icons/HP_borda.png'),
+  loadTexture('/images/icons/harry_potter.png'),
   loadTexture('/images/icons/avatar.png'),
   loadTexture('/images/icons/hora_de_aventura.png'),
   loadTexture('/images/icons/mulan.png'),
@@ -128,19 +128,33 @@ Promise.all([
   const icons = [];
   const radius = 25;
   const height = 3;
-  let t;
-  t += 0.01;
+  let t = 0;
+  const r = 2;
   const URL = ["/pages/branca_de_neve.html", "/pages/harry_potter.html", "/pages/avatar.html", "/pages/hora_de_aventura.html", "/pages/mulan.html", "/pages/vingadores.html"]
   for (let instance = 1; instance <= 6; instance++) {
+    t += 1;
     const mesh = createMesh(3, height,  textures[instance-1], textures[instance-1]);
     mesh.userData = { name: `icon-${instance}`, url: URL[instance -1]};
     mesh.position.x = radius * Math.sin(Math.PI * instance / 4);
     mesh.position.z = radius * Math.cos(Math.PI * instance / 4);
-    mesh.position.y = 40;
+    mesh.position.y = 40 + Math.sin(t + Math.PI * 2 / 3) * r;
     mesh.rotation.y = instance * Math.PI / 4;
     scene.add(mesh);
     icons.push(mesh);
   }
   renderer.render(scene, camera);
+  return icons;
 });
 
+
+// function animate(icons){
+//   let t = 0;
+//   const r = 2;
+//   t += 0.01
+//   icons.position.y = 40 + Math.sin(t + Math.PI * 2 / 3) * r;
+//   renderer.render( scene, camera );
+// }
+
+// iconsPromise.then((icons)=> {
+//   animate(icons);
+// });
