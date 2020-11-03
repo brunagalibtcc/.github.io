@@ -46,18 +46,16 @@ Promise.all([
 ]).then(textures=>createWall(80, 80, textures[0], textures[1]));
 
 Promise.all([
-  loadTexture('images/fundos_index/arvores_grandes.png'),loadTexture('images/fundos_index/arvores_grandes_invertidas.png')
-]).then(textures=>createWall(85, 80,  textures[0], textures[1]));
-
-Promise.all([
   loadTexture('images/fundos_index/arvores_transparentes.png'),loadTexture('images/fundos_index/alpha_test.png')
-]).then(textures=>createWall(100, 80, textures[0], textures[1]));
+]).then(textures=>createWall(90, 80, textures[0], textures[1]));
 
 
 const fundosPromise = Promise.all([
+  loadTexture('/images/home/primeira_transparente.png'),
   loadTexture('/images/fundos/branca_de_neve.png'),
   loadTexture('/images/fundos/harry_potter.png'),
   loadTexture('/images/fundos/avatar.png'),
+  loadTexture('/images/home/segundo_transparente.png'),
   loadTexture('/images/fundos/hora_de_aventura.png'),
   loadTexture('/images/fundos/mulan.png'),
   loadTexture('/images/fundos/vingadores.png')
@@ -65,7 +63,7 @@ const fundosPromise = Promise.all([
   const radius = 30;
   const height = 20;
   const fundos = [];
-  for (let instance = 1; instance <= 6; instance++) {
+  for (let instance = 1; instance <= 8; instance++) {
     const mesh = createMesh(20, height,  textures[instance-1], textures[instance-1]);
     mesh.position.x = radius * Math.sin(Math.PI * instance / 4);
     mesh.position.z = radius * Math.cos(Math.PI * instance / 4);
@@ -82,14 +80,14 @@ const fundosPromise = Promise.all([
 function light(fundos){
   const spotlights = [];
   const radius = 0;
-  const color = ['#cc0000', '#00eb31', '#f75413' , '#ff8c00', '#25b2f2', '#bb00ff'];
-  for (let instance = 1; instance <= 6; instance++){
+  const color = ['#c7c6e1','#cc0000', '#00eb31', '#f75413' , '#c7c6e1', '#ff8c00', '#25b2f2', '#bb00ff'];
+  for (let instance = 1; instance <= 8; instance++){
     let spotLight = new THREE.SpotLight(
       color[instance-1], // color
       1, // intensity
       1000, // distance
-      0.2, // angle
-      0.5, // penumbra
+      0.3, // angle
+      0.8, // penumbra
       2 // decay
     );
 
@@ -128,33 +126,32 @@ const iconsPromise = Promise.all([
   const icons = [];
   const radius = 25;
   const height = 3;
-  let t = 0;
   const r = 2;
   const URL = ["/pages/branca_de_neve.html", "/pages/harry_potter.html", "/pages/avatar.html", "/pages/hora_de_aventura.html", "/pages/mulan.html", "/pages/vingadores.html"]
-  for (let instance = 1; instance <= 6; instance++) {
-    t += 1;
-    const mesh = createMesh(3, height,  textures[instance-1], textures[instance-1]);
-    mesh.userData = { name: `icon-${instance}`, url: URL[instance -1]};
+  let image = 0; 
+  for (let instance = 1; instance <= 8; instance++) {
+    if (instance == 1 || instance == 5){
+      continue;
+    }
+    const mesh = createMesh(3, height,  textures[image], textures[image]);
+    mesh.userData = { name: `icon-${instance}`, url: URL[image]};
+    image++;
     mesh.position.x = radius * Math.sin(Math.PI * instance / 4);
     mesh.position.z = radius * Math.cos(Math.PI * instance / 4);
-    mesh.position.y = 40 + Math.sin(t + Math.PI * 2 / 3) * r;
     mesh.rotation.y = instance * Math.PI / 4;
     scene.add(mesh);
     icons.push(mesh);
   }
-  renderer.render(scene, camera);
+  animate(icons);
   return icons;
 });
 
-
-// function animate(icons){
-//   let t = 0;
-//   const r = 2;
-//   t += 0.01
-//   icons.position.y = 40 + Math.sin(t + Math.PI * 2 / 3) * r;
-//   renderer.render( scene, camera );
-// }
-
-// iconsPromise.then((icons)=> {
-//   animate(icons);
-// });
+let t = 0;
+function animate(icons){
+  t += 0.05;
+  icons.forEach((icon,index)=>icon.position.y = 40 + 0.3*Math.sin(t + index*Math.PI/4));
+  renderer.render( scene, camera );
+  requestAnimationFrame(()=>{
+    animate(icons);
+  });
+}
