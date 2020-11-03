@@ -22,7 +22,7 @@
       }
       #preloader {
         background: #3c2969;
-        border-radius: 5px;
+        border-radius: 10px;
         border-style: solid;
         color: #977dc6;
         display: none;
@@ -51,12 +51,12 @@
         text-align: center;
       }
       #preloader>div>div>img{
-        margin: 10px 70px;
-        height: 250px;
-        width: 250px;
+        border-radius: 10px;
         border: solid;
-        border-radius: 5px;
         color: #977dc6;
+        height: 250px;
+        margin: 10px 70px;
+        width: 250px;
       }
       #preloader>button{
         margin: auto 300px;
@@ -122,9 +122,9 @@
           console.log(sessionStorage.getItem('clicked'));
           document.getElementById('preloader').style.display = "flex"; 
         }
-        setTimeout(function() {
+        Promise.all([fundosPromise, iconsPromise, wallsPromise]).then(function() {
             document.getElementById('loader').style.display = "none";
-          }, 3000);
+          });
       };
 
       camera.position.y = 40;
