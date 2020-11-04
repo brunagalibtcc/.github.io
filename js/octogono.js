@@ -41,21 +41,21 @@ const wallsPromise = Promise.all([
   loadTexture('images/fundos_index/arvores_pequenas.png'),loadTexture('images/fundos_index/arvores_pequenas_invertidas.png')
 ]).then(textures=>createWall(70, 80, textures[0], textures[1]));
 
-Promise.all([
+const secondWalls = Promise.all([
   loadTexture('images/fundos_index/arvores_medias.png'),loadTexture('images/fundos_index/arvores_medias_invertidas.png')
 ]).then(textures=>createWall(80, 80, textures[0], textures[1]));
 
-Promise.all([
+const thirdWalls = Promise.all([
   loadTexture('images/fundos_index/arvores_transparentes.png'),loadTexture('images/fundos_index/alpha_test.png')
 ]).then(textures=>createWall(90, 80, textures[0], textures[1]));
 
 
 const fundosPromise = Promise.all([
-  loadTexture('/images/home/primeira_transparente.png'),
+  loadTexture('/images/fundos/fanart.png'),
   loadTexture('/images/fundos/branca_de_neve.png'),
   loadTexture('/images/fundos/harry_potter.png'),
   loadTexture('/images/fundos/avatar.png'),
-  loadTexture('/images/home/segundo_transparente.png'),
+  loadTexture('/images/fundos/agradecimentos.png'),
   loadTexture('/images/fundos/hora_de_aventura.png'),
   loadTexture('/images/fundos/mulan.png'),
   loadTexture('/images/fundos/vingadores.png')
@@ -86,8 +86,8 @@ function light(fundos){
       color[instance-1], // color
       1, // intensity
       1000, // distance
-      0.3, // angle
-      0.8, // penumbra
+      0.35, // angle
+      0.5, // penumbra
       2 // decay
     );
 
