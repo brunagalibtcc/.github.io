@@ -86,8 +86,8 @@ function light(fundos){
       color[instance-1], // color
       1, // intensity
       1000, // distance
-      0.3, // angle
-      0.8, // penumbra
+      0.35, // angle
+      0.5, // penumbra
       2 // decay
     );
 
