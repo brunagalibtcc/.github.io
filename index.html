@@ -89,12 +89,12 @@
       <h1>Instruções</h1>
       <div>
         <div>
-          <p>1) Clique e arraste para os lados para navegar pelo site.</p>
-          <img src="camera_move.gif">
+          <p>1) Clique e arraste para os lados para se movimentar pelo site.</p>
+          <img src="/gifs/camera_move.gif">
         </div>
         <div>
           <p>2) Clique nos ícones para acessar as obras.</p>
-          <img src="gif_mousemp4_1.gif">
+          <img src="/gifs/gif_mousemp4_1.gif">
         </div>
       </div>
       <button class="ui inverted violet button" id="button">Ok</button>
@@ -122,7 +122,7 @@
           console.log(sessionStorage.getItem('clicked'));
           document.getElementById('preloader').style.display = "flex"; 
         }
-        Promise.all([fundosPromise, iconsPromise, wallsPromise]).then(function() {
+        Promise.all([fundosPromise, iconsPromise, wallsPromise, secondWalls, thirdWalls]).then(function() {
             document.getElementById('loader').style.display = "none";
           });
       };
